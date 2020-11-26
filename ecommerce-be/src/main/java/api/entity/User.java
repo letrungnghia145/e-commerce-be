@@ -3,9 +3,11 @@ package api.entity;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,4 +24,7 @@ public abstract class User {
 	protected String user_email;
 	protected String user_phone;
 	protected String user_address;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	protected Account user_account;	
 }

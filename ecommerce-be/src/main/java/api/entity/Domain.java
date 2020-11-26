@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -19,8 +20,7 @@ public class Domain {
 	@Id
 	private String domain_id;
 	private String domain_name;
-	
-	@OneToMany(mappedBy = "post_domain")
-	
+
+	@OneToMany(mappedBy = "post_domain", fetch = FetchType.LAZY)
 	private Set<Post> domain_posts = new HashSet<>();
 }
