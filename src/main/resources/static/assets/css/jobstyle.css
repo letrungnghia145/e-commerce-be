@@ -1,0 +1,37 @@
+.btnjb{
+    padding: 10px 30px;
+    float:right;
+    border-style: none;
+    font-family: "Barlow",sans-serif;
+    font-size: 16px;
+}
+.btn1{
+    background-color: rgb(65, 238, 65);
+}
+.td{
+    max-width: 450px;
+}
+.bloghv{
+    font-size:16px;
+}
+.hv{
+    box-shadow: 0 0 1px 1px #fb246a;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-cap p a {
+    color: #191d34;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    display: block;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-cap {
+    background: #fff;
+    padding: 37px 20px 37px 20px;
+    border: 1px solid #f7f7f7;
+    border-radius: 5px;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-cap .btnhv{
+    border-radius: 25px;
+    text-transform: uppercase;
+}
