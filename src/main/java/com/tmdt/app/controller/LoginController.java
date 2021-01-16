@@ -16,9 +16,9 @@ public class LoginController {
 
 	@PostMapping("/login")
 	public String doLogin(@RequestParam String username, @RequestParam String password) {
-		if (username.equals("nghia1k45@gmail.com") && password.equals("123")) {
-			return "redirect:/home";
-		}
+//		if (username.equals("nghia1k45@gmail.com") && password.equals("123")) {
+//			return "redirect:/home";
+//		}
 		return "login";
 	}
 }
