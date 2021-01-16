@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,13 +22,14 @@ import lombok.Setter;
 @Setter
 public class Post extends AbstractModel {
 	private String title; // tiêu đề bài đăng
-	private String description; //Mô tả bài đăng
-	private String address; //địa chỉ tuyển dụng
-	private BigDecimal salary; //Mức lương công việc
+	@Column(columnDefinition = "text")
+	private String description; // Mô tả bài đăng
+	private String address; // địa chỉ tuyển dụng
+	private BigDecimal salary; // Mức lương công việc
 	private Integer slot; // số lượng cần tuyển
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date post_date; // ngày đăng bài
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date postExp_date; // hạn nộp hồ sơ
 	@ElementCollection
 	@CollectionTable(name = "experiences", joinColumns = @JoinColumn(name = "post_id"))
@@ -36,8 +38,6 @@ public class Post extends AbstractModel {
 	@CollectionTable(name = "knowledges", joinColumns = @JoinColumn(name = "post_id"))
 	private Set<String> knowledges; // yêu cầu kiến thức (thêm nút add vv)
 
-	
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 

@@ -3,8 +3,11 @@ package com.tmdt.app.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -22,9 +25,15 @@ public class User extends AbstractModel {
 	private String email;
 	private String password;
 
+	// Employer
 	private String address;
 	private String representativeCompany;
 	private String employmentEmail;
+	
+	
+	@ElementCollection(fetch = FetchType.LAZY)
+	@CollectionTable(name = "employer_employee", joinColumns = @JoinColumn(name = "employee_id"))
+	private Set<User> employees;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private Set<Order> orders;

@@ -5,7 +5,16 @@ import java.util.Set;
 import com.google.common.collect.Sets;
 
 public enum UserRole {
-	ROLE_ADMIN(Sets.newHashSet(Permission.POST)), ROLE_EMPLOYEE(Sets.newHashSet()), ROLE_EMPLOYER(Sets.newHashSet());
+	ROLE_ADMIN(Sets.newHashSet(
+			Permission.MANAGE_ACCOUNT
+	)),
+	ROLE_EMPLOYER(Sets.newHashSet(
+			Permission.MANAGE_ACCOUNT,
+			Permission.POST
+	)),
+	ROLE_EMPLOYEE(Sets.newHashSet(
+			Permission.MANAGE_ACCOUNT
+	));
 
 	public Set<Permission> permissions;
 

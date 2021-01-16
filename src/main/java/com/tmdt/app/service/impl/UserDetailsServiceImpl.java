@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.tmdt.app.model.Role;
 import com.tmdt.app.repository.UserRepository;
 
 @Service
@@ -25,7 +26,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			userDetails.setUsername(username);
 			userDetails.setPassword(user.getPassword());
 			Set<GrantedAuthority> authorities = new HashSet<>();
-			user.getRole().getUserRole().permissions.forEach(permission -> {
+			Role role = user.getRole();
+			authorities.add(new SimpleGrantedAuthority(role.getUserRole().name()));
+			role.getUserRole().permissions.forEach(permission -> {
 				authorities.add(new SimpleGrantedAuthority(permission.toString()));
 			});
 			userDetails.setAuthorities(authorities);
