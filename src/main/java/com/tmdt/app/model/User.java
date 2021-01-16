@@ -10,10 +10,12 @@ import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
+@ToString
 public class User extends AbstractModel {
 	private String name;
 	private String phone;
@@ -33,7 +35,7 @@ public class User extends AbstractModel {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private Set<Post> posts;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Role role;
 
 }
