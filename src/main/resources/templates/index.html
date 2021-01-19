@@ -108,23 +108,29 @@
                         <div class="row">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form action="#" class="search-box">
+                                <form action="search" class="search-box" id="search-form" method="get">
                                     <div class="input-form">
-                                        <input type="text" placeholder="Từ khóa tìm kiếm">
+                                        <input type="text" name="search" placeholder="Từ khóa tìm kiếm">
                                     </div>
                                     <div class="select-form">
                                         <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Chọn khu vực</option>
-                                                <option value="">Hà Nội</option>
-                                                <option value="">TP.Hồ Chí Minh</option>
-                                                <option value="">Đà Nẵng</option>
+                                            <select name="location" id="select1">
+                                                <option value="0">Chọn khu vực</option>
+                                                <option value="1">Hà Nội</option>
+                                                <option value="2">TP.Hồ Chí Minh</option>
+                                                <option value="3">Đà Nẵng</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="search-form">
-                                        <a href="#">Tìm kiếm</a>
-                                    </div>	
+                                        <a href="search" onclick="doSearch(event);" >Tìm kiếm</a>
+                                    </div>
+                                    <script type="text/javascript">
+                                    	const doSearch = (event)=>{
+                                    		event.preventDefault();
+                                    		$('#search-form').submit();
+                                    	}
+                                    </script>
                                 </form>	
                             </div>
                         </div>

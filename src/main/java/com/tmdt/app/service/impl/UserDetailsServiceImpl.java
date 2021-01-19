@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserDetailsImpl userDetails = new UserDetailsImpl();
-		repository.findUserByEmail(username).ifPresentOrElse(user -> {
+		repository.findUserByEmail(username).ifPresent(user -> {
 			userDetails.setUsername(username);
 			userDetails.setPassword(user.getPassword());
 			Set<GrantedAuthority> authorities = new HashSet<>();
@@ -32,8 +32,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				authorities.add(new SimpleGrantedAuthority(permission.toString()));
 			});
 			userDetails.setAuthorities(authorities);
-		}, () -> {
-			throw new UsernameNotFoundException("User not found");
 		});
 		return userDetails;
 	}

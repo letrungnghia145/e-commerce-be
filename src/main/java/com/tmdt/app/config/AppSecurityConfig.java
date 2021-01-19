@@ -12,34 +12,34 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@EnableWebSecurity
-@Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableWebSecurity
+//@Configuration
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-//		http.csrf().disable().authorizeRequests().antMatchers("/assets/**").permitAll().anyRequest().authenticated()
-//				.and().formLogin().loginPage("/login").usernameParameter("email").permitAll()
-//				.successHandler(new ConfigAuthorizationHandler());
-		http.authorizeRequests().anyRequest().permitAll();
-	}
-
-	@Override
-	protected UserDetailsService userDetailsService() {
-		return this.userDetailsService;
-	}
-
-	@Bean
-	public PasswordEncoder getPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	};
-
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+////		http.csrf().disable().authorizeRequests().antMatchers("/assets/**").permitAll().anyRequest().authenticated()
+////				.and().formLogin().loginPage("/login").usernameParameter("email").permitAll()
+////				.successHandler(new ConfigAuthorizationHandler());
+//		http.authorizeRequests().anyRequest().permitAll();
+//	}
+//
+//	@Override
+//	protected UserDetailsService userDetailsService() {
+//		return this.userDetailsService;
+//	}
+//
+//	@Bean
+//	public PasswordEncoder getPasswordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	};
+//
+//	@Bean
+//	@Override
+//	public AuthenticationManager authenticationManagerBean() throws Exception {
+//		return super.authenticationManagerBean();
+//	}
 }

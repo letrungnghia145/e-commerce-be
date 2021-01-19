@@ -167,7 +167,7 @@
                                     <li>yêu cầu 3</li>
                                 </ul>
                                 <input type="text" id="textVal" style="border: 1px solid #e5e6e9">
-                                <button onclick="addLi()" style="border: 1px solid #e5e6e9; color: #0b0b0b">Thêm</button>
+                                <button onclick="addLi(event)" style="border: 1px solid #e5e6e9; color: #0b0b0b">Thêm</button>
                             </div>
 
                             <div class="col-12">
@@ -178,7 +178,7 @@
                                     <li>yêu cầu 3</li>
                                 </ul>
                                 <input type="text" id="textVal2" style="border: 1px solid #e5e6e9">
-                                <button onclick="addLi2()" style="border: 1px solid #e5e6e9; color: #0b0b0b">Thêm</button>
+                                <button onclick="addLi2(event)" style="border: 1px solid #e5e6e9; color: #0b0b0b">Thêm</button>
                             </div>
 
                             <div class="col-12">
@@ -427,7 +427,8 @@
 
 
     <script>
-        function addLi() {
+        function addLi(e) {
+        	e.preventDefault();
             var textVal = document.getElementById('textVal').value,
                 listNode = document.getElementById('list'),
                 liNode = document.createElement("LI"),
@@ -436,7 +437,8 @@
             listNode.appendChild(liNode);
         }
 
-        function addLi2() {
+        function addLi2(e) {
+        	e.preventDefault();
             var textVal2 = document.getElementById('textVal2').value,
                 listNode = document.getElementById('list2'),
                 liNode = document.createElement("LI"),
@@ -452,8 +454,6 @@
         function closeForm() {
             document.getElementById("myForm").style.display = "none";
         }
-    </script>
-
     </script>
 </body>
 

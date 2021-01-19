@@ -29,7 +29,7 @@ public class ManageAccountController {
 	private ManageAccountService service;
 
 	@GetMapping("/account")
-	public String showManageAccountFrom(Model model) {
+	public String showManageAccountForm(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = service.getUser(authentication.getName());
 		model.addAttribute("user", user);
