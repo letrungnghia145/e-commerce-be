@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,6 +30,7 @@ public class ManageAccountController {
 	private ManageAccountService service;
 
 	@GetMapping("/account")
+	@PreAuthorize(value = "hasAnyAuthority('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_EMPLOYER')")
 	public String showManageAccountForm(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = service.getUser(authentication.getName());

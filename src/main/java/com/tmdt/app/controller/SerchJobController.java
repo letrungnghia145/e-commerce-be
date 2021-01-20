@@ -19,9 +19,7 @@ public class SerchJobController {
 	@GetMapping("/search")
 	public String doRequestSearch(@RequestParam(value = "search", required = false) String pattern,
 			@RequestParam(value = "location", required = false) Integer location, Model model) {
-		System.out.println(pattern);
 		List<Post> posts = service.doRequestSearch(pattern);
-		System.out.println(posts);
 		model.addAttribute("posts", posts);
 		return "job_listing";
 	}

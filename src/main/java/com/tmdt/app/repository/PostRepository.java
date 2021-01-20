@@ -12,4 +12,7 @@ import com.tmdt.app.model.Post;
 public interface PostRepository extends JpaRepository<Post, Long> {
 	@Query("SELECT p FROM Post p WHERE p.title like ?1")
 	public List<Post> getAllPostsWithPattern(String pattern);
+
+	@Query("SELECT p FROM Post p WHERE p.user.id = ?1")
+	public List<Post> getPostsByEmployerId(Long employerId);
 }

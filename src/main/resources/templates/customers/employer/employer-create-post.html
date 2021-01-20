@@ -113,9 +113,9 @@
                     <h2 class="contact-title">Gói dịch vụ</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <form class="form-contact contact_form" action="/post" method="post" id="post-form" novalidate="novalidate">
                         <div class="row">
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <div class="col-md-12 mb-3 mb-md-0">
                                     <label for="option-price-1">
                                     <input type="checkbox" id="option-price-1"> <span class="text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ 50</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> trong 30 ngày
@@ -126,20 +126,7 @@
                                     <input type="checkbox" id="option-price-2"> <span class="text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ 540</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> trong 1 năm
                                 </font></font></label>
                                 </div>
-                            </div>
-                            <div class="col-md-12 mb-3 mb-md-0">
-                                <h4 class="contact-title">Thông tin công ty</h4>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập tên công ty'" placeholder="Tên công ty">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập địa chỉ Email công ty'" placeholder="Email công ty">
-                                </div>
-                            </div>
+                            </div> -->
                             <div class="col-12">
                                 <h4 class="contact-title">Địa chỉ</h4>
                                 <div class="form-group">
@@ -162,9 +149,7 @@
                                 <h4 class="contact-title">Kiến thức, kỹ năng và khả năng cần thiết</h4>
 
                                 <ul id="list">
-                                    <li>yêu cầu 1</li>
-                                    <li>yêu cầu 2</li>
-                                    <li>yêu cầu 3</li>
+                                    
                                 </ul>
                                 <input type="text" id="textVal" style="border: 1px solid #e5e6e9">
                                 <button onclick="addLi(event)" style="border: 1px solid #e5e6e9; color: #0b0b0b">Thêm</button>
@@ -173,9 +158,6 @@
                             <div class="col-12">
                                 <h4 class="contact-title">Trình độ và kinh nghiệm</h4>
                                 <ul id="list2">
-                                    <li>yêu cầu 1</li>
-                                    <li>yêu cầu 2</li>
-                                    <li>yêu cầu 3</li>
                                 </ul>
                                 <input type="text" id="textVal2" style="border: 1px solid #e5e6e9">
                                 <button onclick="addLi2(event)" style="border: 1px solid #e5e6e9; color: #0b0b0b">Thêm</button>
@@ -196,19 +178,24 @@
                             <div class="col-12">
                                 <h4 class="contact-title">Ngày đăng bài</h4>
                                 <div class="form-group">
-                                    <input class="form-control" name="post_ate" id="post_date" type="date">
+                                    <input class="form-control" name="post_date_test" id="post_date_test" type="date">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <h4 class="contact-title">Hạn nộp hồ sơ</h4>
                                 <div class="form-group">
-                                    <input class="form-control" name="postExp_ate" id="postExp_date" type="date">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn">Đăng tuyển</button>
+                            <button type="submit" onclick="doSavePost(event);" class="button button-contactForm boxed-btn">Đăng tuyển</button>
                         </div>
+                        <script type="text/javascript">
+                        	const doSavePost = (event) => {
+                        		event.preventDefault();
+                        		$('#post-form').submit();
+                        	};
+                        </script>
                     </form>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
@@ -229,7 +216,7 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
-                            <h3>support@colorlib.com</h3>
+                            <h3>support@something.com</h3>
                             <p>Gửi cho chúng tôi câu hỏi của bạn!</p>
                         </div>
                     </div>

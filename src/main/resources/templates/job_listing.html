@@ -290,18 +290,17 @@
 											</div>
 											<div class="job-tittle job-tittle2">
 												<a href="#">
-													<h4>Frontend Development</h4>
+													<h4 th:utext="${post.title}"></h4>
 												</a>
 												<ul>
-													<li>Creative Agency</li>
-													<li><i class="fas fa-map-marker-alt"></i>Hồ Chí Minh</li>
-													<li>$3500 - $4000</li>
+													<li th:utext="${post.domain.type}"></li>
+													<i class="fas fa-map-marker-alt"></i>  <li th:utext="${post.address}"></li>
+													<li th:utext="${'$'+post.salary}"></li>
 												</ul>
 											</div>
 										</div>
 										<div class="items-link items-link2 f-right">
-											<a href="job_details.html">Full Time</a> <span>7 hours
-												ago</span>
+											<a href="job_details.html">See details</a> <span th:utext="${'Ngày đăng: '+post.post_date}"></span>
 										</div>
 									</div>
 								</th:block>

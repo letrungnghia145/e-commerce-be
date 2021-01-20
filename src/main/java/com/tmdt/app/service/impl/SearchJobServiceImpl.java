@@ -1,6 +1,5 @@
 package com.tmdt.app.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +16,8 @@ public class SearchJobServiceImpl implements SearchJobService {
 
 	@Override
 	public List<Post> doRequestSearch(String pattern) {
-		List<Post> posts = new ArrayList<>();
-		if (pattern != null) {
-			posts = pattern.isEmpty() ? repository.findAll() : repository.getAllPostsWithPattern(standardlizePattern(pattern));
-		}
+		List<Post> posts = (pattern != null ? pattern.isEmpty() : true) ? repository.findAll()
+				: repository.getAllPostsWithPattern(standardlizePattern(pattern));
 		return posts;
 	}
 

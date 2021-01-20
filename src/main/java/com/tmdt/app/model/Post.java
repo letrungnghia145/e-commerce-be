@@ -16,10 +16,12 @@ import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
+@ToString
 public class Post extends AbstractModel {
 	private String title; // tiêu đề bài đăng
 	@Column(columnDefinition = "text")
